@@ -35,6 +35,18 @@ class App extends Component {
         'Content-Type': 'application/json'
       }
     })
+    .then(res => {
+      if (res.status !== 200 && res.status !== 201) {
+        throw Error('Failed')
+      }
+      return res.json()
+    })
+    .then(resData => {
+      console.log(resData)
+    })
+    .catch(err => {
+      console.log(err)
+    })
   }
 
   render() {
